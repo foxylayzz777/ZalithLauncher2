@@ -13,7 +13,7 @@ plugins {
     id("com.movtery.buildkeys")
 }
 
-val zalithPackageName = "com.movtery.zalithlauncher"
+val appPackageName = "com.foxy.launcher"
 val launcherAPPName = project.findProperty("launcher_app_name") as? String ?: error("The \"launcher_app_name\" property is not set in gradle.properties.")
 val launcherName = project.findProperty("launcher_name") as? String ?: error("The \"launcher_name\" property is not set in gradle.properties.")
 val launcherShortName = project.findProperty("launcher_short_name") as? String ?: error("The \"launcher_short_name\" property is not set in gradle.properties.")
@@ -41,7 +41,7 @@ fun getKeyFromLocal(envKey: String, fileName: String? = null, default: String? =
 }
 
 android {
-    namespace = zalithPackageName
+    namespace = appPackageName
     compileSdk {
         version = release(37) {
             minorApiLevel = 2
@@ -64,7 +64,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = zalithPackageName
+        applicationId = appPackageName
         applicationIdSuffix = ".v2"
         minSdk = 26
         targetSdk = 34

@@ -31,7 +31,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="${launcher_name}"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/AppTheme.ZalithLauncher"
+        android:theme="@style/AppTheme.FoxyLauncher"
         android:appCategory="game"
         android:supportsRtl="true"
         android:isGame="true"

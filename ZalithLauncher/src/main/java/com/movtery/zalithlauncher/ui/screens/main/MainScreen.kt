@@ -340,18 +340,28 @@ private fun <E: TitledNavKey> TopBar(
                 val maxLines = 1
 
                 if (parent == null) {
-                    if (festivals.isEmpty()) {
+                    Column {
+                        if (festivals.isEmpty()) {
+                            Text(
+                                text = BuildKeys.LAUNCHER_IDENTIFIER,
+                                style = style,
+                                softWrap = softWarp,
+                                maxLines = maxLines
+                            )
+                        } else {
+                            FestivalTitleText(
+                                festivals = festivals,
+                                style = style,
+                                maxLines = maxLines
+                            )
+                        }
+                        //Foxy Launcher: unofficial modified build notice (required by license)
                         Text(
-                            text = BuildKeys.LAUNCHER_IDENTIFIER,
-                            style = style,
-                            softWrap = softWarp,
-                            maxLines = maxLines
-                        )
-                    } else {
-                        FestivalTitleText(
-                            festivals = festivals,
-                            style = style,
-                            maxLines = maxLines
+                            text = "Unofficial modified build",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = LocalContentColor.current.copy(alpha = 0.6f),
+                            softWrap = false,
+                            maxLines = 1
                         )
                     }
                 } else {
