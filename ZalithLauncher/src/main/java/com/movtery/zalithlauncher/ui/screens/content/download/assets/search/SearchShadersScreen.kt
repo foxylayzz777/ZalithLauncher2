@@ -22,7 +22,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import com.movtery.zalithlauncher.game.download.assets.platform.Platform
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformClasses
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.CurseForgeShadersCategory
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.ModrinthFeatures
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.ModrinthShadersCategory
 import com.movtery.zalithlauncher.setting.AllSettings
@@ -53,8 +52,6 @@ fun SearchShadersScreen(
         },
         getCategories = { platform ->
             when (platform) {
-                Platform.CURSEFORGE -> CurseForgeShadersCategory.entries
-                Platform.MODRINTH -> ModrinthShadersCategory.entries
             }
         },
         mapCategories = { platform, string ->
@@ -62,9 +59,6 @@ fun SearchShadersScreen(
                 Platform.MODRINTH -> {
                     ModrinthShadersCategory.entries.find { it.facetValue() == string }
                         ?: ModrinthFeatures.entries.find { it.facetValue() == string }
-                }
-                Platform.CURSEFORGE -> {
-                    CurseForgeShadersCategory.entries.find { it.describe() == string }
                 }
             }
         },

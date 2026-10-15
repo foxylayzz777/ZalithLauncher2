@@ -24,7 +24,6 @@ import com.movtery.zalithlauncher.coroutine.TitledTask
 import com.movtery.zalithlauncher.coroutine.addTask
 import com.movtery.zalithlauncher.game.addons.modloader.ModLoader
 import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.fixedFileUrl
-import com.movtery.zalithlauncher.game.download.assets.platform.mirroredCurseForgeSource
 import com.movtery.zalithlauncher.game.download.assets.platform.mirroredModrinthSource
 import com.movtery.zalithlauncher.game.download.assets.platform.mirroredPlatformSearcher
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.getPrimary
@@ -175,21 +174,8 @@ class ModrinthPackExporter: AbstractExporter(
                                 modrinthFile.url
                             }
 
-                            val curseForgeDeferred = async(Dispatchers.IO) {
-                                val version = runCatching {
-                                    mirroredPlatformSearcher(
-                                        searchers = mirroredCurseForgeSource()
-                                    ) { searcher ->
-                                        searcher.getVersionByLocalFile(file, sha1)
-                                    }
-                                }.getOrNull() ?: return@async null
-
-                                version.fixedFileUrl() ?: return@async null
-                            }
-
                             val links = listOfNotNull(
-                                modrinthDeferred,
-                                curseForgeDeferred.takeIf { packCurseForge }
+                                modrinthDeferred
                             ).awaitAll().filterNotNull().takeIf {
                                 it.isNotEmpty()
                             } ?: return@runCatching false
