@@ -267,6 +267,7 @@ suspend fun getVersionById(
         ) { searcher ->
             searcher.getVersion(versionId)
         }
+    }
 }
 
 suspend fun getVersionByLocalFile(file: File, sha1: String): PlatformVersion? = withContext(Dispatchers.IO) {
