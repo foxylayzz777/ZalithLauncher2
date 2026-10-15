@@ -41,7 +41,7 @@ fun getKeyFromLocal(envKey: String, fileName: String? = null, default: String? =
 }
 
 android {
-    namespace = appPackageName
+    namespace = "com.movtery.zalithlauncher" // must match the source package (BuildKeys/R class)
     compileSdk {
         version = release(37) {
             minorApiLevel = 2
