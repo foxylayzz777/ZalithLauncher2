@@ -170,10 +170,6 @@ private class DownloadScreenViewModel(
             versionsResult = DownloadAssetsState.Getting()
             //重新加载时重试此前获取失败的依赖项目
             failedDependencyProjects.clear()
-            if (platform == Platform.CURSEFORGE) {
-                versionsLoading = DownloadAssetsVersionLoading.StartLoadPage
-            }
-
             getVersions(
                 projectID = projectId,
                 platform = platform,

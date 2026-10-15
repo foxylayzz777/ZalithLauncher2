@@ -77,7 +77,6 @@ import com.movtery.zalithlauncher.game.download.assets.favorites.FavoriteProject
 import com.movtery.zalithlauncher.game.download.assets.platform.Platform
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformClasses
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformDisplayLabel
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.curseForgeModLoaderFilters
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.modrinthModLoaderFilters
 import com.movtery.zalithlauncher.setting.AllSettings
 import com.movtery.zalithlauncher.ui.base.BaseScreen
@@ -111,7 +110,7 @@ private enum class FavoriteSortBy {
  * 收藏过滤器可用的模组加载器，两平台按显示名合并
  */
 private val favoriteModLoaderFilters: List<PlatformDisplayLabel> =
-    (modrinthModLoaderFilters + curseForgeModLoaderFilters).distinctBy { it.getDisplayName() }
+    modrinthModLoaderFilters.distinctBy { it.getDisplayName() }
 
 private class FavoritesScreenViewModel : ViewModel() {
     /** 分类过滤器，null 表示全部 */

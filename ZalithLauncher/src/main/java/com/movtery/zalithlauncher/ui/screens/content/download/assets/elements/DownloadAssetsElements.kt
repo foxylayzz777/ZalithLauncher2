@@ -486,7 +486,6 @@ fun ProjectUrlsContent(
             onClick = { openLink(url) },
             iconSize = 18.dp,
             painter = when (platform) {
-                Platform.CURSEFORGE -> painterResource(R.drawable.img_platform_curseforge)
                 Platform.MODRINTH -> painterResource(R.drawable.img_platform_modrinth)
             },
             text = stringResource(R.string.download_assets_project_link)
