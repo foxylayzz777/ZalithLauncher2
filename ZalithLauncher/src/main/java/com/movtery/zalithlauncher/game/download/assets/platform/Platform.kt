@@ -29,8 +29,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 @Parcelize
 enum class Platform(val displayName: String): Parcelable {
-    @SerialName("CURSEFORGE")
-    CURSEFORGE("CurseForge"),
     @SerialName("MODRINTH")
     MODRINTH("Modrinth")
 }

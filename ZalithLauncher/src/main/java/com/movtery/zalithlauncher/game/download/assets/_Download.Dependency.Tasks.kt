@@ -28,7 +28,6 @@ import com.movtery.zalithlauncher.game.download.assets.platform.PlatformDependen
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformDisplayLabel
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformProject
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformVersion
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.CurseForgeModLoader
 import com.movtery.zalithlauncher.game.download.assets.platform.getProjectByVersion
 import com.movtery.zalithlauncher.game.download.assets.platform.getVersionById
 import com.movtery.zalithlauncher.game.download.assets.platform.getVersions
@@ -485,9 +484,6 @@ private fun ModLoader.toPlatformLoader(platform: Platform): PlatformDisplayLabel
     if (displayName.isEmpty()) return null
     return when (platform) {
         Platform.MODRINTH -> ModrinthModLoaderCategory.entries.find {
-            it.getDisplayName().equals(displayName, true)
-        }
-        Platform.CURSEFORGE -> CurseForgeModLoader.entries.find {
             it.getDisplayName().equals(displayName, true)
         }
     }
