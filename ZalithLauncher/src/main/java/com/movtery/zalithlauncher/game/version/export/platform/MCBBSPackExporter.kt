@@ -23,7 +23,6 @@ import com.movtery.zalithlauncher.R
 import com.movtery.zalithlauncher.coroutine.TitledTask
 import com.movtery.zalithlauncher.coroutine.addTask
 import com.movtery.zalithlauncher.game.addons.modloader.ModLoader
-import com.movtery.zalithlauncher.game.download.modpack.platform.curseforge.CurseForgeManifest
 import com.movtery.zalithlauncher.game.download.modpack.platform.mcbbs.MCBBSManifest
 import com.movtery.zalithlauncher.game.version.export.AbstractExporter
 import com.movtery.zalithlauncher.game.version.export.ExportInfo
@@ -125,40 +124,6 @@ class MCBBSPackExporter: AbstractExporter(
             val jsonString = GSON.toJson(manifest)
             manifestFile.writeText(jsonString)
 
-            // CurseForge manifest
-            val cfLoader = info.loader?.let { loader ->
-                when (loader.loader) {
-                    ModLoader.FORGE -> CurseForgeManifest.Minecraft.ModLoader(
-                        "forge-${loader.version}", true
-                    )
-                    ModLoader.NEOFORGE -> CurseForgeManifest.Minecraft.ModLoader(
-                        "neoforge-${loader.version}", true
-                    )
-                    ModLoader.FABRIC -> CurseForgeManifest.Minecraft.ModLoader(
-                        "fabric-${loader.version}", true
-                    )
-                    else -> null
-                }
-            }
-
-            val minecraft = CurseForgeManifest.Minecraft(
-                gameVersion = info.mcVersion,
-                modLoaders = listOfNotNull(cfLoader)
-            )
-            val curseManifest = CurseForgeManifest(
-                manifestType = "minecraftModpack",
-                manifestVersion = 1,
-                name = info.name,
-                version = info.version,
-                author = info.author,
-                overrides = "overrides",
-                minecraft = minecraft,
-                files = emptyList(),
-            )
-
-            val curseManifestFile = File(tempPath, "manifest.json")
-            val curseJson = GSON.toJson(curseManifest)
-            curseManifestFile.writeText(curseJson)
         }
     }
 

@@ -43,15 +43,6 @@ enum class PackType(val options: PackEditOptions) {
         PackEditOptions.Builder()
             .requireSummary()
             .requirePackModrinth()
-            .requirePackCurseForge()
-            .build()
-    ),
-
-    CurseForge(
-        PackEditOptions.Builder()
-            .requireAuthor()
-            .requirePackCurseForge()
-            .requireMinMemory()
             .build()
     ),
 
@@ -77,7 +68,6 @@ class PackEditOptions private constructor(
     val requireMinMemory: Boolean = false,
     val requireMaxMemory: Boolean = false,
     val requirePackModrinth: Boolean = false,
-    val requirePackCurseForge: Boolean = false
 ) {
     class Builder {
         private var requireAuthor: Boolean = false
@@ -88,7 +78,6 @@ class PackEditOptions private constructor(
         private var requireMinMemory: Boolean = false
         private var requireMaxMemory: Boolean = false
         private var requirePackModrinth: Boolean = false
-        private var requirePackCurseForge: Boolean = false
 
         fun requireAuthor() = this.also { requireAuthor = true }
         fun requireSummary() = this.also { requireSummary = true }
@@ -98,7 +87,6 @@ class PackEditOptions private constructor(
         fun requireMinMemory() = this.also { requireMinMemory = true }
         fun requireMaxMemory() = this.also { requireMaxMemory = true }
         fun requirePackModrinth() = this.also { requirePackModrinth = true }
-        fun requirePackCurseForge() = this.also { requirePackCurseForge = true }
 
         fun build() = PackEditOptions(
             requireAuthor = requireAuthor,
@@ -109,7 +97,6 @@ class PackEditOptions private constructor(
             requireMinMemory = requireMinMemory,
             requireMaxMemory = requireMaxMemory,
             requirePackModrinth = requirePackModrinth,
-            requirePackCurseForge = requirePackCurseForge
         )
     }
 }

@@ -24,8 +24,6 @@ import androidx.compose.runtime.setValue
 import com.movtery.zalithlauncher.game.download.assets.platform.Platform
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformClasses
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformVersion
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.CurseForgeFile
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.CurseForgeModLoader
 import com.movtery.zalithlauncher.game.download.assets.platform.getProjectByVersion
 import com.movtery.zalithlauncher.game.download.assets.platform.getVersionByLocalFile
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.ModrinthModLoaderCategory
@@ -182,19 +180,6 @@ class RemoteMod(
                         ModrinthModLoaderCategory.entries.find { it.facetValue() == loaderName }
                     }.toTypedArray(),
                     datePublished = datePublished
-                )
-            }
-            is CurseForgeFile -> {
-                ModFile(
-                    id = id.toString(),
-                    projectId = modId.toString(),
-                    platform = Platform.CURSEFORGE,
-                    loaders = gameVersions.mapNotNull { loaderName ->
-                        CurseForgeModLoader.entries.find {
-                            it.getDisplayName().equals(loaderName, true)
-                        }
-                    }.toTypedArray(),
-                    datePublished = fileDate
                 )
             }
             else -> error("Unknown version type: $this")

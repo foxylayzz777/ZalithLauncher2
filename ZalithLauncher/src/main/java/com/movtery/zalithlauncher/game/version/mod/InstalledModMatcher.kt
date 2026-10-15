@@ -146,8 +146,6 @@ suspend fun matchInstalledMods(
                     val fetched = try {
                         when (platform) {
                             Platform.MODRINTH -> getModrinthVersBySha1(chunk.map { it.sha1 })
-                            Platform.CURSEFORGE ->
-                                getCFFilesByFingerprints(chunk.map { it.murmur2 }).mapKeys { it.key.toString() }
                         }
                     } catch (e: CancellationException) {
                         throw e
@@ -206,8 +204,6 @@ private fun ModFingerprints.cacheKey(platform: Platform): String =
  */
 private fun ModFingerprints.fingerprintValue(platform: Platform): String = when (platform) {
     Platform.MODRINTH -> sha1
-    Platform.CURSEFORGE -> murmur2.toString()
-}
 
 /**
  * 平台未命中指纹时的负缓存标记
