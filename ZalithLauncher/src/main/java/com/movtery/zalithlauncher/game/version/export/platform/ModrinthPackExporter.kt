@@ -23,7 +23,6 @@ import com.movtery.zalithlauncher.R
 import com.movtery.zalithlauncher.coroutine.TitledTask
 import com.movtery.zalithlauncher.coroutine.addTask
 import com.movtery.zalithlauncher.game.addons.modloader.ModLoader
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.fixedFileUrl
 import com.movtery.zalithlauncher.game.download.assets.platform.mirroredModrinthSource
 import com.movtery.zalithlauncher.game.download.assets.platform.mirroredPlatformSearcher
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.getPrimary
