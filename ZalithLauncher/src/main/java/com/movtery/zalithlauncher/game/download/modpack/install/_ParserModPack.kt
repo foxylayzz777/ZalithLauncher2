@@ -21,8 +21,6 @@ package com.movtery.zalithlauncher.game.download.modpack.install
 import com.movtery.zalithlauncher.coroutine.Task
 import com.movtery.zalithlauncher.game.download.assets.platform.Platform
 import com.movtery.zalithlauncher.game.download.modpack.platform.AbstractPack
-import com.movtery.zalithlauncher.game.download.modpack.platform.curseforge.CurseForgeManifest
-import com.movtery.zalithlauncher.game.download.modpack.platform.curseforge.CurseForgePack
 import com.movtery.zalithlauncher.game.download.modpack.platform.modrinth.ModrinthManifest
 import com.movtery.zalithlauncher.game.download.modpack.platform.modrinth.ModrinthPack
 import com.movtery.zalithlauncher.utils.GSON
@@ -67,17 +65,6 @@ suspend fun parserModPack(
     val emptyFile = File("")
 
     when (platform) {
-        Platform.CURSEFORGE -> {
-            val config = PackParserConfig(
-                manifestPath = "manifest.json",
-                manifestType = CurseForgeManifest::class.java,
-                createPack = { CurseForgePack(root = emptyFile, it) },
-                readPack = { task, target, extract ->
-                    readCurseForge(task, target, extract)
-                }
-            )
-            parseModPackGeneric(file, targetFolder, task, config)
-        }
         Platform.MODRINTH -> {
             val config = PackParserConfig(
                 manifestPath = "modrinth.index.json",

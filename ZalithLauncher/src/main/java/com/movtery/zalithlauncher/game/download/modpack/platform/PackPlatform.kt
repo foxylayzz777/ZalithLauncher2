@@ -29,12 +29,6 @@ import com.movtery.zalithlauncher.game.download.assets.platform.Platform
  * @param identifier 内部使用的标识名称
  */
 enum class PackPlatform(val identifier: String) {
-    CurseForge(Platform.CURSEFORGE.displayName) {
-        @Composable
-        override fun getIcon(): Painter {
-            return painterResource(R.drawable.img_platform_curseforge)
-        }
-    },
     Modrinth(Platform.MODRINTH.displayName) {
         @Composable
         override fun getIcon(): Painter {

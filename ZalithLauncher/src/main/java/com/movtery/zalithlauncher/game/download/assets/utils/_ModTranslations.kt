@@ -21,7 +21,6 @@ package com.movtery.zalithlauncher.game.download.assets.utils
 import android.content.Context
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformClasses
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformProject
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.CurseForgeProject
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.ModrinthSingleProject
 import com.movtery.zalithlauncher.utils.isChinese
 import com.movtery.zalithlauncher.utils.string.containsChinese
@@ -36,7 +35,6 @@ fun PlatformProject.getMcMod(
     val translations = classes.getTranslations()
     return when (this) {
         is ModrinthSingleProject -> translations.getModBySlugId(slug)
-        is CurseForgeProject -> translations.getModBySlugId(data.slug)
         else -> error("Unknown project type: $this")
     }
 }
@@ -49,7 +47,6 @@ fun PlatformProject.getMcMod(
 ): ModTranslations.McMod? {
     return when (this) {
         is ModrinthSingleProject -> translations.getModBySlugId(slug)
-        is CurseForgeProject -> translations.getModBySlugId(data.slug)
         else -> error("Unknown project type: $this")
     }
 }

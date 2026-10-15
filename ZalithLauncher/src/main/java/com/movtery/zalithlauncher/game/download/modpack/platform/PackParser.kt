@@ -18,7 +18,6 @@
 
 package com.movtery.zalithlauncher.game.download.modpack.platform
 
-import com.movtery.zalithlauncher.game.download.modpack.platform.curseforge.CurseForgePackParser
 import com.movtery.zalithlauncher.game.download.modpack.platform.mcbbs.MCBBSPackMetaParser
 import com.movtery.zalithlauncher.game.download.modpack.platform.modrinth.ModrinthPackParser
 import com.movtery.zalithlauncher.game.download.modpack.platform.multimc.MultiMCPackParser
@@ -44,7 +43,6 @@ interface PackParser {
  * 启动器所有支持的整合包格式解析器
  */
 val ALL_PACK_PARSER = listOf(
-    CurseForgePackParser,
     ModrinthPackParser,
     MultiMCPackParser,
     MCBBSPackMetaParser

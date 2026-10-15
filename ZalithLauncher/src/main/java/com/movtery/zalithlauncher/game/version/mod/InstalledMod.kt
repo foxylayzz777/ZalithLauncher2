@@ -21,7 +21,6 @@ package com.movtery.zalithlauncher.game.version.mod
 import android.os.Parcelable
 import com.movtery.zalithlauncher.game.download.assets.platform.Platform
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformVersion
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.CurseForgeFile
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.ModrinthVersion
 import kotlinx.parcelize.Parcelize
 
@@ -51,12 +50,6 @@ fun PlatformVersion.toInstalledMod(): InstalledMod = when (this) {
         projectId = projectId,
         versionId = id,
         versionName = versionNumber
-    )
-    is CurseForgeFile -> InstalledMod(
-        platform = Platform.CURSEFORGE,
-        projectId = modId.toString(),
-        versionId = id.toString(),
-        versionName = displayName
     )
     else -> error("Unknown version type: $this")
 }
