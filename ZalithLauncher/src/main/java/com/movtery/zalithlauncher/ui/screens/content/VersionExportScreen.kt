@@ -184,7 +184,7 @@ private class ExportModpackViewModel(
         packType: PackType = PackType.Modrinth
     ): ExportInfo {
         val packModrinth = packType == PackType.Modrinth
-        val packCurseForge = packType == PackType.Modrinth || packType == PackType.CurseForge
+        val packCurseForge = false
         return ExportInfo(
             gamePath = gamePath,
             name = versionName,

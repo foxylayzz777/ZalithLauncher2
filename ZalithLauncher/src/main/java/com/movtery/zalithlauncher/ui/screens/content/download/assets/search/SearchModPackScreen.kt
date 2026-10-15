@@ -47,8 +47,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.movtery.zalithlauncher.R
 import com.movtery.zalithlauncher.game.download.assets.platform.Platform
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformClasses
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.CurseForgeModpackCategory
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.curseForgeModLoaderFilters
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.ModrinthFeatures
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.ModrinthModpackCategory
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.modrinthModLoaderFilters
@@ -139,14 +137,12 @@ fun SearchModPackScreen(
         },
         getCategories = { platform ->
             when (platform) {
-                Platform.CURSEFORGE -> CurseForgeModpackCategory.entries
                 Platform.MODRINTH -> ModrinthModpackCategory.entries
             }
         },
         enableModLoader = true,
         getModloaders = { platform ->
             when (platform) {
-                Platform.CURSEFORGE -> curseForgeModLoaderFilters
                 Platform.MODRINTH -> modrinthModLoaderFilters
             }
         },
@@ -155,9 +151,6 @@ fun SearchModPackScreen(
                 Platform.MODRINTH -> {
                     ModrinthModpackCategory.entries.find { it.facetValue() == string }
                         ?: ModrinthFeatures.entries.find { it.facetValue() == string }
-                }
-                Platform.CURSEFORGE -> {
-                    CurseForgeModpackCategory.entries.find { it.describe() == string }
                 }
             }
         },

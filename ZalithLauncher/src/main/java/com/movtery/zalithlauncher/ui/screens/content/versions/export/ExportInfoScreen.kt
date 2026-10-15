@@ -73,7 +73,6 @@ private const val OPTIONAL_WEBSITE_URL = "requireWebsiteUrl"
 private const val OPTIONAL_MIN_MEMORY = "requireMinMemory"
 private const val OPTIONAL_MAX_MEMORY = "requireMaxMemory"
 private const val OPTIONAL_PACK_MODRINTH = "requirePackModrinth"
-private const val OPTIONAL_PACK_CURSEFORGE = "requirePackCurseForge"
 
 @Composable
 private fun rememberOptionalItemIDList(
@@ -89,7 +88,6 @@ private fun rememberOptionalItemIDList(
             if (options.requireMinMemory) add(OPTIONAL_MIN_MEMORY)
             if (options.requireMaxMemory) add(OPTIONAL_MAX_MEMORY)
             if (options.requirePackModrinth) add(OPTIONAL_PACK_MODRINTH)
-            if (options.requirePackCurseForge) add(OPTIONAL_PACK_CURSEFORGE)
         }
     }
 }
@@ -360,36 +358,6 @@ fun ExportInfoScreen(
                 }
             }
 
-            if (info.packType.options.requirePackCurseForge) {
-                //是否打包 CurseForge 的远程资源
-                animatedItem(scope) { yOffset ->
-                    val enabled = remember(info) {
-                        info.packType == PackType.CurseForge ||
-                                (info.packType == PackType.Modrinth && info.packModrinth)
-                    }
-                    val alsoText = stringResource(R.string.versions_export_pack_also_pack_curseforge)
-                    val packText = stringResource(
-                        id = R.string.versions_export_pack_pack_remote,
-                        Platform.CURSEFORGE.displayName
-                    )
-                    val finalText = remember(info) {
-                        if (info.packType == PackType.Modrinth) alsoText else packText
-                    }
-                    SwitchSettingsCard(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .offset { IntOffset(x = 0, y = yOffset.roundToPx()) },
-                        position = optionalItemIDs.rememberCardPosition(OPTIONAL_PACK_CURSEFORGE),
-                        title = finalText,
-                        checked = info.packCurseForge,
-                        onCheckedChange = {
-                            onInfoEdited(info.copy(packCurseForge = it))
-                        },
-                        enabled = enabled
-                    )
-                }
-            }
-
             //导出按钮
             animatedItem(scope) { yOffset ->
                 Column(
@@ -402,7 +370,6 @@ fun ExportInfoScreen(
                     val packRemote = remember(info) {
                         when (info.packType) {
                             PackType.Modrinth -> info.packModrinth
-                            PackType.CurseForge -> info.packCurseForge
                             else -> false
                         }
                     }
@@ -429,7 +396,6 @@ fun ExportInfoScreen(
                                     val platformText = remember(info) {
                                         buildList {
                                             if (info.packModrinth) add(Platform.MODRINTH.displayName)
-                                            if (info.packCurseForge) add(Platform.CURSEFORGE.displayName)
                                         }.joinToString(" ")
                                     }
 

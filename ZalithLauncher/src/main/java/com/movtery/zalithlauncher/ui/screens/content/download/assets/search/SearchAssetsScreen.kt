@@ -137,9 +137,7 @@ private class SearchScreenViewModel(
                     ver.contains(version)
                 }.take(20) //仅展示20个搜索结果
                 else -> allVersions.filter {
-                    it.version.id.contains(version) &&
-                            //CurseForge只能使用正式版进行过滤
-                            (searchPlatform != Platform.CURSEFORGE || it.type == MinecraftVersion.Type.Release)
+                    it.version.id.contains(version)
                 }.map { it.version.id }.take(20) //仅展示20个搜索结果
             }
             withContext(Dispatchers.Main) {

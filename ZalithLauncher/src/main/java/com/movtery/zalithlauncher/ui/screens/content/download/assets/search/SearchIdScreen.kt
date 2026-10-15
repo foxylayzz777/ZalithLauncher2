@@ -124,7 +124,7 @@ private class SearchIdViewModel: ViewModel() {
     val defaultClasses = PlatformClasses.MOD
 
     var projectId by mutableStateOf("")
-    var platform by mutableStateOf(Platform.CURSEFORGE)
+    var platform by mutableStateOf(Platform.MODRINTH)
 
     /** 搜索页面操作状态 */
     var operation by mutableStateOf<SearchIdOperation>(SearchIdOperation.None)

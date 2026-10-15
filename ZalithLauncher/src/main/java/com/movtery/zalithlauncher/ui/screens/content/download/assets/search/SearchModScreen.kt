@@ -22,8 +22,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import com.movtery.zalithlauncher.game.download.assets.platform.Platform
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformClasses
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.CurseForgeModCategory
-import com.movtery.zalithlauncher.game.download.assets.platform.curseforge.models.curseForgeModLoaderFilters
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.ModrinthFeatures
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.ModrinthModCategory
 import com.movtery.zalithlauncher.game.download.assets.platform.modrinth.models.modrinthModLoaderFilters
@@ -59,14 +57,12 @@ fun SearchModScreen(
         },
         getCategories = { platform ->
             when (platform) {
-                Platform.CURSEFORGE -> CurseForgeModCategory.entries
                 Platform.MODRINTH -> ModrinthModCategory.entries
             }
         },
         enableModLoader = true,
         getModloaders = { platform ->
             when (platform) {
-                Platform.CURSEFORGE -> curseForgeModLoaderFilters
                 Platform.MODRINTH -> modrinthModLoaderFilters
             }
         },
@@ -75,9 +71,6 @@ fun SearchModScreen(
                 Platform.MODRINTH -> {
                     ModrinthModCategory.entries.find { it.facetValue() == string }
                         ?: ModrinthFeatures.entries.find { it.facetValue() == string }
-                }
-                Platform.CURSEFORGE -> {
-                    CurseForgeModCategory.entries.find { it.describe() == string }
                 }
             }
         },
