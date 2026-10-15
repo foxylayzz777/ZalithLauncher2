@@ -1,0 +1,37 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Foxy Launcher icon: geometric fox head -->
+    <path
+        android:fillColor="#E8721C"
+        android:pathData="M22,48 L34,16 L46,44 Z" />
+    <path
+        android:fillColor="#E8721C"
+        android:pathData="M86,48 L74,16 L62,44 Z" />
+    <path
+        android:fillColor="#8A3A0F"
+        android:pathData="M30,42 L35,26 L41,40 Z" />
+    <path
+        android:fillColor="#8A3A0F"
+        android:pathData="M78,42 L73,26 L67,40 Z" />
+    <path
+        android:fillColor="#F5821F"
+        android:pathData="M22,48 L54,38 L86,48 L76,78 L54,94 L32,78 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,78 L54,94 L54,74 L42,68 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M76,78 L54,94 L54,74 L66,68 Z" />
+    <path
+        android:fillColor="#1A1A2E"
+        android:pathData="M42,60 L50,58 L48,64 L40,64 Z" />
+    <path
+        android:fillColor="#1A1A2E"
+        android:pathData="M66,60 L58,58 L60,64 L68,64 Z" />
+    <path
+        android:fillColor="#1A1A2E"
+        android:pathData="M54,82 L49,76 L59,76 Z" />
+</vector>
