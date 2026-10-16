@@ -139,15 +139,6 @@ fun ExportTypeSelectScreen(
                         onClick = { onTypeSelect(PackType.Modrinth) }
                     )
 
-                    //CurseForge
-                    TypeItem(
-                        modifier = Modifier.fillMaxWidth(),
-                        position = CardPosition.Middle,
-                        title = stringResource(R.string.versions_export_type_curseforge),
-                        summary = stringResource(R.string.versions_export_type_summary_common),
-                        icon = painterResource(R.drawable.img_platform_curseforge),
-                        onClick = { onTypeSelect(PackType.CurseForge) }
-                    )
 
                     //MultiMC
                     TypeItem(

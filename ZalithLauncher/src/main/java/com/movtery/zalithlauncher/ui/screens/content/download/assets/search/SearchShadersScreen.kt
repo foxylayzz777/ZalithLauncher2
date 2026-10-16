@@ -52,6 +52,7 @@ fun SearchShadersScreen(
         },
         getCategories = { platform ->
             when (platform) {
+                Platform.MODRINTH -> ModrinthShadersCategory.entries
             }
         },
         mapCategories = { platform, string ->

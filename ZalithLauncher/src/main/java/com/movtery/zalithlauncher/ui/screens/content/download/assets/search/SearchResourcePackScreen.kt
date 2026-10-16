@@ -52,6 +52,7 @@ fun SearchResourcePackScreen(
         },
         getCategories = { platform ->
             when (platform) {
+                Platform.MODRINTH -> ModrinthResourcePackCategory.entries
             }
         },
         mapCategories = { platform, string ->

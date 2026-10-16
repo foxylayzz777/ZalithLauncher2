@@ -19,7 +19,6 @@
 package com.movtery.zalithlauncher.game.version.mod
 
 import com.movtery.zalithlauncher.game.download.assets.platform.Platform
-import com.movtery.zalithlauncher.game.download.assets.platform.getCFFilesByFingerprints
 import com.movtery.zalithlauncher.game.download.assets.platform.getModrinthVersBySha1
 import com.movtery.zalithlauncher.utils.logging.Logger
 import com.tencent.mmkv.MMKV
